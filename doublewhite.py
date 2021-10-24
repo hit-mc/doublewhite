@@ -1,6 +1,7 @@
 import json
 import uuid
 from typing import Iterator
+from sys import stderr
 
 import oyaml as yaml
 import requests
@@ -159,6 +160,8 @@ def interactive(config_file):
             if 'q' in cl:
                 # quit
                 return
+        else:
+            print('Invalid command.', file=stderr)
 
 
 if __name__ == '__main__':
