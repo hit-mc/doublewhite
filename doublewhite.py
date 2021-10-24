@@ -162,4 +162,7 @@ def interactive(config_file):
 
 
 if __name__ == '__main__':
-    interactive(WHITELIST_FILE)
+    try:
+        interactive(WHITELIST_FILE)
+    except EOFError:
+        pass
