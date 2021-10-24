@@ -19,7 +19,7 @@ Available commands:
 - l | p | list | print: print changes ready in memory.
 - w | write: save changes to disk.
 - q | quit: quit without saving.
-- wq | qw: save and quit.
+- wq | qw: save and quit.\
 '''
 INVALID = 'Invalid command.'
 
