@@ -32,10 +32,13 @@ def get_uuid_by_user_name(user_name, api):
         return str(uuid.UUID(j.get('id')))
 
 
-def whitelist_update_players(config_file, players_to_add: Iterator[str],
+def whitelist_update_players(config_file: str, players_to_add: Iterator[str],
                              players_to_remove: Iterator[str], encoding='utf-8'):
     """
     Add players to config file in an atomic way.
+    :param encoding: the encoding of config file. Default to UTF-8.
+    :param players_to_remove: players to delete from the whitelist.
+    :param config_file: config file's filename.
     :param players_to_add: the players to be added. if you want to add one player,
     pass a singleton collection instead of the bare string.
     """
@@ -158,8 +161,7 @@ def interactive(config_file):
             players_to_add, players_to_remove = {}, {}
             print(f'{added} player(s) added. {removed} player(s) removed.')
             if 'q' in cl:
-                # quit
-                return
+                return  # quit
         else:
             print('Invalid command.', file=stderr)
 
